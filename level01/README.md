@@ -2,7 +2,7 @@
 
 
 ## Recognition
-We can see when checking the content of /etc/passwd file,that the password for flag01 is unshadowed :
+We can see when checking the content of `/etc/passwd` file,that the password for flag01 is unshadowed :
 ```bash
 $> cat /etc/passwd
 [...]
@@ -10,7 +10,7 @@ flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
 [...]
 ```
 
-Using a kali linux we can identify the type of the hash which is DES in this case.
+Using the `hashid` command we can identify the type of the hash which is DES in this case.
 ```bash
 kali@kali$ hashid 42hDRfypTqqnw
 Analyzing '42hDRfypTqqnw'
@@ -24,7 +24,7 @@ Analyzing '42hDRfypTqqnw'
 
 
 ## Exploitation
-With the unshadowed line from /etc/passwd that we got before, we can try to bruteforce it via a dictionary attack.
+With the unshadowed line from `/etc/passwd` that we got before, we can try to bruteforce it via a dictionary attack.
 ```bash
 kali@kali$ echo 'flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash' > crypt.txt
 kali@kali$ john -w /usr/share/wordlists/rockyou.txt crypt.txt
@@ -33,7 +33,7 @@ kali@kali$ john -w /usr/share/wordlists/rockyou.txt crypt.txt
 Session completed.
 ```
 
-John found the password ! We can now show it using :
+John found the password ! We can now display it using :
 ```bash
 kali@kali$ john --show crypt.txt
 flag01:abcdefg:3001:3001::/home/flag/flag01:/bin/bash

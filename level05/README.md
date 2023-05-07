@@ -10,7 +10,7 @@ level05@SnowCrash:~$ find / -user flag05 2>/dev/null
 /rofs/usr/sbin/openarenaserver
 ```
 
-When looking at the content of the file, we can see that this is a bash script executing any file located in /opt/openarenaserver.
+When looking at the content of the file, we can see that this is a bash script executing any file located in `/opt/openarenaserver`.
 ```bash
 level05@SnowCrash:~$ cat /usr/sbin/openarenaserver
 #!/bin/sh
@@ -28,7 +28,7 @@ level05@SnowCrash:~$ find / -name level05 2>/dev/null
 /rofs/var/mail/level05
 ```
 
-The file in /var/mail/level05 contains the following cron information :
+The file in `/var/mail/level05` contains the following cron information :
 ```bash
 level05@SnowCrash:~$ cat /var/mail/level05
 */2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
@@ -41,7 +41,7 @@ Which tells us that the script in /usr/sbin/openarenaserver will be executed by 
 
 ## Exploitation
 
-We can then try to add a script in /opt/openarenaserver/ which will execute `getflag`, we will also need to create a file in /tmp/flag so that it will be readable by level05, if the file is created by the script it will not be readable to our user. Similarly we have to give the permission to the file to be written by anyone.
+We can then try to add a script in `/opt/openarenaserver/` which will execute `getflag`, we will also need to create a file in `/tmp/flag` so that it will be readable by level05, if the file is created by the script it will not be readable to our user. Similarly we have to give the permission to the file to be written by anyone.
 
 ```
 level05@SnowCrash:~$ touch /tmp/flag

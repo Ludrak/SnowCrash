@@ -4,7 +4,7 @@
 
 There is an executable named level03 that is suid and sgid on flag03 at the home directory of level03.
 
-Using `readelf` we can see the .rodata section of the program and and dump its content.
+Using `readelf` we can see the `.rodata` section of the program and and dump its content.
 
 ```bash
 level03@SnowCrash:~$ readelf -x .rodata level03
@@ -15,7 +15,7 @@ Hex dump of section '.rodata':
   0x080485f8 74206d65 00                         t me.
 ```
 
-We can also disassemble it with `objdump` to see what is happening in the main function. 
+We can also use `objdump` to disassemble it and see what is happening in the main function. 
 ```bash
 level03@SnowCrash:~$ objdump -M intel -D level03
 [...]

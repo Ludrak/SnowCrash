@@ -9,7 +9,7 @@ total 12
 ----r--r-- 1 flag02 level02 8302 Aug 30  2015 level02.pcap
 ```
 
-Pcap files are snapshots of a network sniff, it contains the data exchanged between multiples machines on a specific network.
+Pcap files are snapshots of a network sniff, it contains some data that had been exchanged between multiples machines on a specific network.
 
 </br>
 </br>
@@ -18,9 +18,9 @@ Pcap files are snapshots of a network sniff, it contains the data exchanged betw
 
 We can open and inspect its content using Wireshark.
 
-While inspecting with Wireshark, we found out that this snapshot was unencrypted and was a communication between only two machines at 59.233.235.218 and 59.233.235.223.
+While inspecting with Wireshark, we have found out that the snapshot was unencrypted and was a communication between only two machines at 59.233.235.218 and 59.233.235.223.
 
-We can then follow the TCP Stream to see what data was exchanged.
+We can then follow the TCP Stream to see what data had been exchanged.
 
 TCP Stream level02.pcap:
 ```
@@ -38,9 +38,9 @@ Login incorrect
 wwwbugs login: 
 ```
 
-As we can see, this is a snapshot from a login connection. Since the connection is unencrypted we can see the password content entered by the user.
+As we can see, this is a snapshot of a login connection. Since the connection is unencrypted the password content entered by the user has been leaked.
 
-Looking further, the password also contains the ASCII character `7f` which is the `DEL` character, from that we can deduce that the user mistyped his password. We can easily recompose it like that :
+Looking further, the password also contains the ASCII character `Ox7f` which is the `DEL` character, from that we can deduce that the user mistyped his password. We can easily recompose it like that :
 
 ```
 ft_waNDReL0L
